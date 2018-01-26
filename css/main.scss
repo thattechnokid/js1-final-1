@@ -1,10 +1,70 @@
-$my-blue: #;
+$my-blue: #4468B0;
+$lightblack: #474747;
 
 .spacer30{
   height:30px;
 }
 
 .banner{
-  height:100px;
-  background-color:
+  height:125px;
+  background-color: $my-blue;
+  h1{
+    text-align: center;
+    color:white;
+  }
+  #myInput{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 400px;
+    height: 40px;
+    outline: none;
+    border: none;
+    padding: 6px;
+  }
+  .add-button{
+    height:40px;
+    width:100px;
+    background-color: darkgray;
+    position: absolute;
+    transform: translate(-50%);
+    left: 69.5%;
+    text-align: center;
+    cursor: pointer;
+    p{
+      transform: translate(0%,50%);
+    }
+  }
+}
+ul{
+  margin:0;
+  padding:0;
+
+  li{
+    list-style-type: none;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 18px;
+    color: $lightblack;
+    padding: 12px 8px 12px 40px;
+    background-color: silver;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  li:nth-child(odd){
+    background-color: gainsboro;
+  }
+  li:hover{
+    background-color: darkgray;
+    color: whitesmoke;
+  }
+  li.checked{
+    color: whitesmoke;
+    text-decoration: line-through;
+    text-decoration-color: white;
+    background-color:gray;
+  }
 }
