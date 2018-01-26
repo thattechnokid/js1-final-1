@@ -19,12 +19,14 @@
   .banner .add-button {
     height: 40px;
     width: 100px;
-    background-color: darkgray;
+    background-color: silver;
     position: absolute;
     transform: translate(-50%);
     left: 69.5%;
     text-align: center;
     cursor: pointer; }
+    .banner .add-button:hover {
+      background-color: darkgray; }
     .banner .add-button p {
       transform: translate(0%, 50%); }
 
@@ -53,5 +55,25 @@ ul {
     text-decoration: line-through;
     text-decoration-color: white;
     background-color: gray; }
+    ul li.checked::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      color: whitesmoke;
+      border-color: whitesmoke;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px; }
+
+.deleteButton {
+  position: absolute;
+  right: 20px;
+  padding: 12px 16px;
+  transform: translate(11.6%, -24.5%); }
+  .deleteButton:hover {
+    background-color: #FC3B36;
+    color: whitesmoke; }
 
 /*# sourceMappingURL=main.css.map */
