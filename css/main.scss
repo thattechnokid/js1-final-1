@@ -66,5 +66,9 @@ ul{
     text-decoration: line-through;
     text-decoration-color: white;
     background-color:gray;
+    &::before{
+      content:'HEEEEY';
+    }
   }
+
 }
