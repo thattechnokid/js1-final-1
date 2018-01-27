@@ -72,7 +72,7 @@ ul{
     color: whitesmoke;
     text-decoration: line-through;
     text-decoration-color: white;
-    background-color:gray;
+    background-color:lightgray;
 
     //Creates a checkmark before the checked items in the todo list
     &::before{
@@ -92,6 +92,7 @@ ul{
 }// ul
 
   .delete{
+    z-index: 1;
     position: absolute;
     right: 20px;
     padding: 12px 16px;
@@ -99,6 +100,20 @@ ul{
 
     &:hover{
       background-color: #FC3B36;
+      color:whitesmoke;
+    }
+  }
+  .edit{
+    z-index: 1;
+    position: absolute;
+    right: 58px;
+    padding: 12px 16px;
+    transform: translate(-0.2%,-24.5%);
+    color:#1269D3;
+    // font-size: 2px;
+
+    &:hover{
+      background-color: #1269D3;
       color:whitesmoke;
     }
   }

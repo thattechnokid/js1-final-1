@@ -58,7 +58,7 @@ ul {
     color: whitesmoke;
     text-decoration: line-through;
     text-decoration-color: white;
-    background-color: gray; }
+    background-color: lightgray; }
     ul li.checked::before {
       content: '';
       position: absolute;
@@ -72,12 +72,24 @@ ul {
       width: 7px; }
 
 .delete {
+  z-index: 1;
   position: absolute;
   right: 20px;
   padding: 12px 16px;
   transform: translate(11.6%, -24.5%); }
   .delete:hover {
     background-color: #FC3B36;
+    color: whitesmoke; }
+
+.edit {
+  z-index: 1;
+  position: absolute;
+  right: 58px;
+  padding: 12px 16px;
+  transform: translate(-0.2%, -24.5%);
+  color: #1269D3; }
+  .edit:hover {
+    background-color: #1269D3;
     color: whitesmoke; }
 
 /*# sourceMappingURL=main.css.map */

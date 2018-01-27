@@ -1,7 +1,8 @@
 
 
-// Add the close button to the end of every list item
 var myListItems = document.getElementsByTagName('LI');
+
+// Add the close button to the end of every list item
 
 for (var i = 0; i < myListItems.length; i++) {
   //To add a textNode, you have to create an element first, so I used a span element.. I could technically use a paragraph or an h4 or something
@@ -55,7 +56,7 @@ listItems.addEventListener('click',function(event){
 function newItem(){
 //Allow user to add any to do to the list by
   var newListItem = document.createElement('LI');
-  var newInput = document.getElementById('myInput').value;
+  var newInput = document.getElementById('myInput').value; //What the user inputted
   var t = document.createTextNode(newInput);
 
   newListItem.appendChild(t);// Adds input text to the LI element
@@ -84,4 +85,22 @@ function newItem(){
     }
 
   }
-}
+  // ---------------  EDIT Todo items  -----------------
+
+  var editBox = document.createElement('SPAN'); //Added element
+  var editLabel = document.createTextNode('Edit'); //Made txt node
+  editBox.className = 'edit';
+  editBox.appendChild(editLabel);
+  newListItem.appendChild(editBox);// Added edit sign to each element
+
+  var editMe = document.getElementsByClassName('edit');
+  for (var i = 0; i < editMe.length; i++) {
+    editMe[i].onclick = function(){
+      var editInput = document.createElement('INPUT');
+      var oldText = document.createTextNode(newInput[i]);
+      editInput.appendChild(oldText);
+      newListItem.replaceChild(editInput, newInput[i]);
+    }
+  }
+
+} //End of added new items
