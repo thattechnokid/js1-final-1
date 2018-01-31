@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>To Do List</title>
 
     <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -14,22 +14,42 @@
 
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
-        <div class="col-xs-12 banner">
-          <h1>Cristian's To-Do List</h1>
-          <input type="text" id="myInput" placeholder="Title ... ">
-          <span class="add-button" onclick="newItem()"> <p>Add</p> </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-xs-10 col-xs-offset-1 col-md-offset-2">
-          <div class="spacer30"></div>
-          <ul id="myList">
-          </ul>
-        </div>
+        <div class="spacer100"></div>
+          <div class="col-xs-6 col-xs-offset-3 content">
+            <h2>Cristian's To-Do List</h2>
+            <hr style="width:80%; height:3px; background:#474747">
+            <div class="spacer30"></div>
+            <h4 for="new-task">Add Something:</h4>
+            <hr>
+            <input type="text" id="new-task" placeholder="Title ... ">
+            <span class="add-button" onclick="newItem()"> <p style="margin: 0 0 10px">Add</p> </span>
+
+            <div class="spacer30"></div>
+
+              <!-- NOTE: INCOMPLETE Tasks -->
+            <h4>To Do</h4>
+            <hr>
+            <ul id="incomplete-tasks">
+              <li> <input type="checkbox"> <label>Check this box!</label> <button class="edit">Edit</button> <button class="delete">Delete</button></li>
+
+              <!-- Demonstrates the edit mode -->
+              <li class="editMode"><input type="checkbox"><label>Edit This Task</label><input type="text" value="Edit this thing"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+            </ul>
+
+            <div class="spacer30"></div>
+
+            <!-- NOTE: COMPLETED Tasks -->
+            <h4>Completed</h4>
+            <hr>
+            <ul id="completed-tasks">
+              <li> <input type="checkbox" checked> <label>Check Out This Site!  </label> <button class="edit">Edit</button> <button class="delete">Delete</button> </li>
+            </ul>
+          </div>
       </div>
     </div>
+
 
 
 
