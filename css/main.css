@@ -38,6 +38,10 @@ body {
   .content .delete:hover {
     background-color: #FC3B36;
     color: #FFFFF3; }
+  .content input[type="text"]:focus {
+    color: #333; }
+  .content input[type="checkbox"] {
+    margin-right: 10px; }
 
 .add-button {
   position: absolute;
