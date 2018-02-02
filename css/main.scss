@@ -67,6 +67,10 @@ body{
  width:100px;
  background-color: gray;
  color:white;
+
+ &:hover{
+   cursor: pointer;
+ }
  p{
    transform: translate(0%,50%);
  }
@@ -82,4 +86,40 @@ body{
  border-top-left-radius: 8px;
  border-bottom-left-radius: 8px;
  transform: translate(-18%);
+}
+
+/*************************
+******* New Tasks ********
+**************************/
+label[for=new-task]{
+  display: block;
+}
+
+
+
+/*************************
+*** Completed Tasks ******
+**************************/
+
+#completed-tasks{
+  label{
+    text-decoration: line-through;
+    color: lightgray;
+  }
+}
+
+/** For editing tasks **/
+ul li{
+  input[type=text]{
+    display: none;
+  }
+
+/** Whenever an element has the edit mode class, it will display the text box and hide the label **/
+
+  &.editMode input[type=text]{
+    display: inline;
+  }
+  &.editMode label{
+    display: none;
+  }
 }
