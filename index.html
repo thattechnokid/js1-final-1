@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="../node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.min.css">
 
 
   </head>
@@ -23,8 +22,8 @@
             <div class="spacer30"></div>
             <h4 for="new-task">Add Something:</h4>
             <hr>
-            <input type="text" id="new-task" placeholder="Title ... ">
-            <span class="add-button" onclick="newItem()"> <p style="margin: 0 0 10px">Add</p> </span>
+            <input type="text" id="new-task" placeholder="Title ... " autofocus>
+            <span class="add-button"> <p>+</p> </span>
 
             <div class="spacer30"></div>
 
@@ -32,10 +31,10 @@
             <h4>To Do</h4>
             <hr>
             <ul id="incomplete-tasks">
-              <li> <input type="checkbox"> <label>Check this box!</label> <button class="edit">Edit</button> <button class="delete">Delete</button></li>
+              <!-- <li> <input type="checkbox"> <label>Check this box!</label> <button class="edit">Edit</button> <button class="delete">Delete</button></li> -->
 
               <!-- Demonstrates the edit mode -->
-              <li class="editMode"><input type="checkbox"><label>Edit This Task</label><input type="text" value="Edit this thing"><button class="edit">Edit</button><button class="delete">Delete</button></li>
+              <!-- <li class="editMode"><input type="checkbox"><label>Edit This Task</label><input type="text" value="Edit this thing"><button class="edit">Edit</button><button class="delete">Delete</button></li> -->
             </ul>
 
             <div class="spacer30"></div>
@@ -44,7 +43,7 @@
             <h4>Completed</h4>
             <hr>
             <ul id="completed-tasks">
-              <li> <input type="checkbox" checked> <label>Check Out This Site!  </label> <button class="edit">Edit</button> <button class="delete">Delete</button> </li>
+              <!-- <li> <input type="checkbox" checked> <label>Check Out This Site!  </label> <button class="edit">Edit</button> <button class="delete">Delete</button> </li> -->
             </ul>
           </div>
       </div>
@@ -55,6 +54,6 @@
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.min.js"></script>
   </body>
 </html>
