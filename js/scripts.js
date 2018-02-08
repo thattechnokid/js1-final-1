@@ -13,6 +13,11 @@ var incompleteTaskList = document.getElementById('incomplete-tasks');
 //complete task List
 var completeTaskList = document.getElementById('completed-tasks');
 
+var completed = [];
+var incompleted = [];
+
+
+
 /************************
 ******** New Item *******
 *************************/
@@ -63,6 +68,7 @@ var addTask = function(){
   //Append listItem to incompleteTaskList
   incompleteTaskList.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
+
 
   //Clear out input after button is pushed
   newInput.value = "";
@@ -183,6 +189,7 @@ addBtn.addEventListener("click", ajaxRequest);
   //for each li, bind events to li children (taskcCompleted)
 for (var i = 0; i < incompleteTaskList.children.length; i += 1){
   bindTaskEvents(incompleteTaskList.children[i],taskCompleted);
+
 }
 
 //Cycle over completeTaskList ul items
