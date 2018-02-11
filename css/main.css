@@ -1,3 +1,9 @@
+.hidden {
+  display: none; }
+
+.strike-through {
+  text-decoration: line-through; }
+
 .spacer30 {
   height: 30px; }
 
@@ -19,8 +25,6 @@ body {
     width: 100%;
     height: 2px;
     background: #474747; }
-  .content label {
-    margin-right: 10px; }
   .content h4 {
     text-align: left; }
   .content ul {
@@ -28,22 +32,8 @@ body {
   .content input, .content button {
     outline: none;
     padding: 10px; }
-  .content .edit, .content .delete {
-    background: none;
-    border: 0px;
-    width: 60px;
-    cursor: pointer;
-    font-size: 15px; }
-  .content .edit:hover {
-    background-color: #1269D3;
-    color: #FFFFF3; }
-  .content .delete:hover {
-    background-color: #FC3B36;
-    color: #FFFFF3; }
   .content input[type="text"]:focus {
     color: #333; }
-  .content input[type="checkbox"] {
-    margin-right: 10px; }
 
 .add-button {
   position: absolute;
@@ -59,7 +49,7 @@ body {
     transform: translate(0%, 10%);
     font-size: 26px; }
 
-#new-task {
+#new-input {
   height: 50px;
   width: 300px;
   border: gray solid 2px;
@@ -67,28 +57,37 @@ body {
   border-bottom-left-radius: 25px;
   transform: translate(-1%); }
 
-/*************************
-******* New Tasks ********
-**************************/
-label[for=new-task] {
-  display: block; }
-
-/*************************
-*** Completed Tasks ******
-**************************/
-#completed-tasks label {
-  text-decoration: line-through;
-  color: lightgray; }
-
-/** For editing tasks **/
-ul li {
-  /** Whenever an element has the edit mode class, it will display the text box and hide the label **/ }
-  ul li input[type=text] {
-    display: none; }
-  ul li.editMode input[type=text] {
-    display: inline; }
-  ul li.editMode label {
-    display: none; }
+.edit-popup {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 250, 250, 0.8);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .edit-popup form {
+    width: 80%; }
+  .edit-popup #saveMe {
+    background-color: yellowgreen;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+    height: 50px;
+    border: 2px gray;
+    border-left-style: none;
+    border-style: solid;
+    transform: translate(-6px); }
+  .edit-popup .list-edit {
+    width: 500px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 2px gray;
+    border-right-style: none;
+    border-style: solid;
+    height: 50px; }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) {
   body {
