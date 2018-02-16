@@ -8,6 +8,12 @@ $off-white: #FFFFF3;
 .hidden{
   display: none;
 }
+
+li{
+  font-size:25px;
+
+}
+
 .strike-through{
   text-decoration: line-through;
 }
@@ -44,6 +50,7 @@ body{
   }
   ul{
     text-align: left;
+    list-style-type: none;
   }
   input, button{
     outline: none;
@@ -135,8 +142,49 @@ body{
     border-style: solid;
     height:50px;
   }
-}
+}//End of editPopup
 
+.fa-circle-o{
+  position: absolute;
+  transform: translate(-50%,2%);
+  left: 4%;
+  font-size: 25px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.fa-pencil-square-o{
+  margin-left: 100px;
+  margin-right: 20px;
+  font-size: 25px;
+  transform: translate(-50%,6%);
+  color: #76D7C4;
+  position: absolute;
+  right: 13%;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.fa-times-circle{
+  position: absolute;
+  right: 10%;
+  font-size: 25px;
+  transform: translate(-50%, 1%);
+  color: red;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.fa-check-circle{
+    position: absolute;
+    transform: translate(-50%, 2%);
+    left: 4%;
+    font-size: 25px;
+    color: green;
+    &:hover{
+      cursor: pointer;
+    }
+}
 // ---------------  MEDIA Queries  ------------------
 
 // ===============  DEVICE SIZES  ===============
