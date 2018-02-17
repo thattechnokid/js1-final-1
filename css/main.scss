@@ -143,7 +143,11 @@ body{
     height:50px;
   }
 }//End of editPopup
-
+.special-styles{
+  list-style-type: none;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
 .fa-circle-o{
   position: absolute;
   transform: translate(-50%,2%);

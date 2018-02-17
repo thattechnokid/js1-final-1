@@ -14,10 +14,10 @@ var completedList = document.querySelector('#completed-tasks'),
 
 //============  Local Storage Allocators  =============
 
-var completedTaskStorage = localStorage.getItem(completedTaskArray),
-    incompleteTaskStorage = localStorage.getItem(incompleteTaskArray),
-    incompleteParsedArray = JSON.parse(incompleteTaskStorage) || [],
-    completedParsedArray = JSON.parse(completedTaskStorage) || [];
+    var completedTaskStorage = localStorage.getItem('completedTaskArray'),
+     incompleteTaskStorage = localStorage.getItem('incompleteTaskArray'),
+     incompleteParsedArray = JSON.parse(incompleteTaskStorage) || [],
+     completedParsedArray = JSON.parse(completedTaskStorage) || [];
     //If we dont add the || [], JS will throw an error if there is an empty storage thingy...lol
 
 
@@ -25,7 +25,7 @@ var completedTaskStorage = localStorage.getItem(completedTaskArray),
 
 window.onbeforeunload = function(){
   localStorage.setItem('completedTaskArray', JSON.stringify(completedTaskArray));
-  localStorage.setItem('incompleteTaskArray', JSON.stringify('incompleteTaskArray'));
+  localStorage.setItem('incompleteTaskArray', JSON.stringify(incompleteTaskArray));
 }
 
 //================  THE Good Stuff!  =================
@@ -56,7 +56,7 @@ function TodoItem(text){
     this.li.classList.add('strike-through');
     this.checked.classList.remove('hidden');
     this.checkbox.classList.add('hidden');
-    this.editButton.classList.add('hidden');
+    this.editButton.classList.add('hidden');//Hide edit btn
     //Edit button isnt needed since it is completed... duh
   }
 
@@ -70,15 +70,45 @@ var inputtedText = function(){
       incompleteTaskArray.push(inputText); //Adding the text to the incompleted array to also be added to the localStorage later
 
       var createTaskElement = new TodoItem(inputText); //Create a new instance of the TodoItem object constructor function called createTaskElement
-      createTaskElement.li.style.listStyleType = 'none';
-      createTaskElement.li.style.fontSize = '18px';
-      createTaskElement.li.style.marginBottom = '30px';//Make font bigger and no bullets
+      createTaskElement.li.classList.add('special-styles');//Make font bigger and no bullets
 
       incompleteList.append(createTaskElement.li); //The createTaskElement.li accesses the li element created in the TodoItem object constructor function and adds it to the HTML in the incompleted UL
 
       taskInput.value = ''; //Clears the input on the
     }
   });
+}
+
+// ==============  Check off an item/mark as done  ===============
+
+var checkOffThisTask = function(whichItem){
+  removeFromArray(incompleteTaskArray, whichItem.textContent); //removes the targeted Li elements' text from incomplete task array
+  incompleteList.removeChild(whichItem); //Remove the actual LI element
+
+  //Place it in the completed listener
+  completedTaskArray.push(whichItem.textContent);
+  var taskString = whichItem.textContent; //Appending textContent of old item to variable
+  var completedTasks = new TodoItem(taskString); //making new instance of the TodoItem obj.const.func
+  completedTasks.strikeThrough(); //Apply strikeThrough function, including striking text and unhiding checkmark
+  completedTasks.li.classList.add('special-styles');//Make font bigger and no bullets
+
+  completedList.append(completedTasks.li); //Add new LI made above to the HTML file in the completed section
+
+}
+
+// ==================  UN-check an item and put back to incomplete area =================
+
+var uncheckOffThisTask = function(whichItem){
+  removeFromArray(completedTaskArray, whichItem.textContent);
+  completedList.removeChild(whichItem);
+
+  incompleteTaskArray.unshift(whichItem.textContent);//unshift puts the LI at the front of the array ;)
+  var taskString = whichItem.textContent;
+  var incompletedTasks = new TodoItem(taskString);
+  incompletedTasks.li.classList.add('special-styles');
+
+                          // What to insert      |   Where to insert before
+  incompleteList.insertBefore(incompletedTasks.li, incompleteList.firstChild); //Inserts the todo item at the TOP of the incompleted tasks
 }
 
 
@@ -95,24 +125,24 @@ var inputtedText = function(){
   var deleteThisTask = function(whichItem){
     var confirmDelete = confirm('Are you sure you want to delete this task?');
     if (confirmDelete == true) {
-      console.log('Deleting Task...');
+      // console.log('Deleting Task...');
       var todoText = whichItem.textContent; //Puts current todo text in this variable to log to the console... not necessary
 
       if (whichItem.parentElement === incompleteList) { //Tests if the list item that is trying to be removed is in the incompleteList
 
         incompleteList.removeChild(whichItem); //removes the list item
         removeFromArray(incompleteTaskArray, whichItem.textContent); //removes the text from the given array that was in the todo list
-        console.log(`Deleted your todo: ${todoText}`);
+        // console.log(`Deleted your todo: ${todoText}`);
 
       }else if (whichItem.parentElement === completedList) {
         completedList.removeChild(whichItem);
-        removeFromArray(completedTaskArray, whichItem.tectContent);
-        console.log(`Deleted your todo: ${todoText}`);
+        removeFromArray(completedTaskArray, whichItem.textContent);
+        // console.log(`Deleted your todo: ${todoText}`);
 
       }
     }else{
       //do Nothing
-      console.log('Task deletion was cancelled');
+      // console.log('Task deletion was cancelled');
     }
   }//END of delete task
 
@@ -140,9 +170,8 @@ var inputtedText = function(){
           var editedTodoText = editToDo.value;
           //In order for this to work, we have to create a new instance of the TodoItem object constructor function and replace the old one with the new one
           var replacingTask = new TodoItem(editedTodoText);//Creating new todo
-          replacingTask.li.style.listStyleType = 'none';
-          replacingTask.li.style.fontSize = '18px';
-          replacingTask.li.style.marginBottom = '30px';//Make font bigger and no bullets
+          replacingTask.li.classList.add('special-styles');//Make font bigger and no bullets
+
 
           editPopup.classList.add('hidden');//Hiding editPopup
 
@@ -165,14 +194,6 @@ var inputtedText = function(){
     }
   }
 
-//===================  LOCAL STORAGE  ======================+
-var loadLocalStorage = function(whichArray){
-  for (var i = 0; i < whichArray.length; i++) {
-    if (whichArray[i] !== undefined && whichArray[i] !== null) { //Validation
-      var todoText = whichArray[i];
-    }
-  }
-}
 
 // ================  Add listeners for the edit, complete, and delete buttons  =======================
 
@@ -203,8 +224,30 @@ var actionButtonListeners = function(){
   });
 }//End of button actionButtonListeners
 
+//===================  LOCAL STORAGE  ======================+
+var loadLocalStorage = function(whichArray){
+  for (var i = 0; i < whichArray.length; i++) {
+    if (whichArray[i] !== undefined && whichArray[i] !== null) { //Validation
+      var todoText = whichArray[i]; // Takes text from whatever array is passed through at that index --->
+      var storedList = new TodoItem(todoText); //Creates new instance of the TodoItem obj.const.function | and passes it through here, which then will be made into an LI element
+      if (whichArray === incompleteParsedArray) {
+        incompleteTaskArray.push(whichArray[i]); // takes whatever is stored in the incompleteParsedArray from localStorage and adds it to the incompleteTaskArray.
+        storedList.li.classList.add('special-styles');
+
+        incompleteList.append(storedList.li); //Puts the LI with the text from localStorage into the HTML file
+      }else {
+        completedTaskArray.push(whichArray[i]);
+        storedList.strikeThrough();//Runs the strike function made in the TodoItem obj.const. function to cross out text and show checked button
+        storedList.li.classList.add('special-styles');
+        completedList.append(storedList.li);
+      }
+    }
+  }
+};
+
 
 //Running functions that need to be ran
 inputtedText();
-
+loadLocalStorage(incompleteParsedArray);
+loadLocalStorage(completedParsedArray);
 actionButtonListeners();
