@@ -48,6 +48,11 @@ function TodoItem(text){
   this.editButton.classList.add('fa', 'fa-pencil-square-o');
   this.deleteButton.classList.add('fa', 'fa-times-circle');
 
+  this.checkbox.setAttribute("onclick", "void(0)");
+  this.checked.setAttribute("onclick", "void(0)");
+  this.editIcon.setAttribute("onclick", "void(0)");
+  this.delIcon.setAttribute("onclick", "void(0)");
+  
   // add all icons to the List
   this.li.append(this.checkbox, this.checked, this.editButton, this.deleteButton);
 
