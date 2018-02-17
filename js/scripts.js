@@ -50,9 +50,9 @@ function TodoItem(text){
 
   this.checkbox.setAttribute("onclick", "void(0)");
   this.checked.setAttribute("onclick", "void(0)");
-  this.editIcon.setAttribute("onclick", "void(0)");
-  this.delIcon.setAttribute("onclick", "void(0)");
-  
+  this.editButton.setAttribute("onclick", "void(0)");
+  this.deleteButton.setAttribute("onclick", "void(0)");
+
   // add all icons to the List
   this.li.append(this.checkbox, this.checked, this.editButton, this.deleteButton);
 
