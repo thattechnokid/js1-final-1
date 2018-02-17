@@ -60,6 +60,8 @@ body {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transform: translate(-1%); }
+  #new-input:focus {
+    font-size: 16; }
 
 .edit-popup {
   width: 100%;
@@ -92,6 +94,8 @@ body {
     border-right-style: none;
     border-style: solid;
     height: 50px; }
+    .edit-popup .list-edit:focus {
+      font-size: 16px; }
 
 .special-styles {
   list-style-type: none;

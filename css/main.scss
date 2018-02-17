@@ -106,6 +106,9 @@ body{
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   transform: translate(-1%);
+  &:focus{
+    font-size: 16;
+  }
 }
 
 .edit-popup{
@@ -141,6 +144,9 @@ body{
     border-right-style:none;
     border-style: solid;
     height:50px;
+    &:focus{
+      font-size: 16px;
+    }
   }
 }//End of editPopup
 .special-styles{
