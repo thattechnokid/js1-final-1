@@ -14,11 +14,11 @@
 
   </head>
   <body>
-    <div class="container">
+    <div class="container main">
       <div class="row">
         <div class="spacer100"></div>
           <div class="col-md-6 col-md-offset-3 content col-xs-12">
-            <h2>Cristian's To-Do List</h2>
+            <h2 class="title">Cristian's To-Do List</h2>
             <hr style="width:80%; height:3px; background:#474747">
             <div class="spacer30"></div>
             <h4 for="new-task">Add Something:</h4>
@@ -31,22 +31,18 @@
             <div class="spacer30"></div>
 
               <!-- NOTE: INCOMPLETE Tasks -->
-            <h4>To Do</h4>
             <hr>
+            <h4 class="incomplete">To Do</h4>
             <ul id="incomplete-tasks">
-              <!-- <li> <input type="checkbox"> <label>Check this box!</label> <button class="edit">Edit</button> <button class="delete">Delete</button></li> -->
-
-              <!-- Demonstrates the edit mode -->
-              <!-- <li class="editMode"><input type="checkbox"><label>Edit This Task</label><input type="text" value="Edit this thing"><button class="edit">Edit</button><button class="delete">Delete</button></li> -->
             </ul>
 
             <div class="spacer30"></div>
 
             <!-- NOTE: COMPLETED Tasks -->
-            <h4>Completed</h4>
+            <h4 class="complete">Completed</h4>
             <hr>
             <ul id="completed-tasks">
-              <!-- <li> <input type="checkbox" checked> <label>Check Out This Site!  </label> <button class="edit">Edit</button> <button class="delete">Delete</button> </li> -->
+
             </ul>
 
             <div class="edit-popup hidden">
