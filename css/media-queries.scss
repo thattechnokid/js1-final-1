@@ -1,0 +1,145 @@
+// ---------------  MEDIA Queries  ------------------
+
+$off-white: #FFFFF3;
+
+// ===============  DEVICE SIZES  ===============
+   $tablet-portrait: "only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1)";
+
+   $iphone-PLUS: "only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3)";
+
+   $iphone4-x: "only screen and (min-device-width: 320px) and (max-device-width: 812px)";
+
+
+
+
+   // =============  Changing sizes  ==========
+
+  // ---- iPhone 4 - X ----
+  @media #{$iphone4-x}{
+    body{
+      width:100%;
+      overflow-x: none;
+      hr{
+        display: none;
+      }
+    }
+    .main{
+      .spacer100{
+        display: none;
+      }
+      .content{
+        border-style:none;
+        border-radius: 0px;
+        height:100vh;
+        background-color: #5ACF96;
+        color:$off-white;
+      }
+      .title{
+        position: relative;
+        top:2%;
+      }
+      #new-input{
+        top: 13%;
+        position: absolute;
+        left: 6%;
+        width: 330px;
+        height: 60px;
+        background-color: rgba(255,255,255,0.5);
+        border: none;
+        border-radius: 32px;
+
+        &::placeholder{
+          color: gray;
+        }
+        &:focus{
+          color:darkslategray;
+        }
+    }
+      .add-button{
+        position: absolute;
+        top: 13%;
+        right: -2%;
+        background-color: #51a97e;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        p{
+          transform: translate(0%,2%);
+          font-size: 35px;
+        }
+      }
+      h4[for='new-task']{
+        display: none;
+      }
+      .incomplete{
+        position: relative;
+        top: 10%;
+      }
+      .complete{
+        position: relative;
+        top: 16%;
+      }
+      #incomplete-tasks{
+        position: relative;
+        top: 12%;
+      }
+      #completed-tasks{
+        position: relative;
+        top: 18%;
+      }
+      #saveMe{
+        transform: translate(209%,-100%);
+        height: 60px;
+      }
+      .list-edit{
+        height: 60px;
+        position: relative;
+        left: -10%;
+        width: 250px;
+        color:gray;
+
+      }
+      .fa-times-circle{
+        color:#eb0000;
+      }
+      .fa-pencil-square-o{
+        color:#daa520;
+      }
+      .fa-check-circle{
+        color:#238e23;
+      }
+    }// end of main
+
+  }// end of iphone 4-x
+
+
+  //==========  iPhone PLUS Models  ==========
+
+  // ---- iPhone PLUS ----
+  @media #{$iphone-PLUS}{
+    body{
+      width:100%;
+      overflow-x: none;
+      hr{
+        display: none;
+      }
+    }
+    .main{
+      #new-input{
+        left: 11%;
+    }
+      .add-button{
+        right: 2%;
+      }
+
+
+      #saveMe{
+        transform: translate(-10%,0%);
+      }
+      .list-edit{
+        left: 0%;
+      }
+
+    }// end of main
+
+  }// end of iphone PLUS
